@@ -1,2 +1,2 @@
 # Internet-Technologies
-A data repo for internet technologues course of B.Sc. (hons) CS
+A data repo for Internet Technologies course of B.Sc. (hons) Computer Science.
