@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical 5</title>
+</head>
+
+<body>
+    <nav class='nav justify-content-center'>
+        <h1 id='headline'>Practical 5</h1>
+    </nav>
+    <main>
+        <img src="static/images/avatar.jpg" id='avatar' alt="avatar" height="100px" width="100px" style="position: absolute">
+    </main>
+    <script>
+        img = document.getElementById('avatar');
+        img.style.left = "0px";
+        img.style.top = "100px"
+        maxX = screen.availWidth - 100;
+        maxY = screen.availHeight - 196;
+
+        function animate() {
+            x = img.style.left
+            y = img.style.top
+            x = Number(x.substr(0, x.length-2))
+            y = Number(y.substr(0, y.length-2))
+            if(y === 100 && x !== maxX) {
+                x = (x+1)
+                img.style.left = x+'px'
+                // console.log(x+','+maxX)
+            }
+            if(x === maxX && y!==maxY) {
+                y = (y+1)
+                img.style.top = y+'px'
+                // console.log(y+','+maxY)
+            } 
+            if (y === maxY && x !== 0) {
+                x = (x-1)
+                img.style.left = x+'px'
+                // console.log(x+','+maxX)
+            } 
+            if(x === 0 && y !== 100) {
+                y = (y-1)
+                img.style.top = y+'px'
+                // console.log(y+','+maxY)
+            }
+            console.log(x+','+y)
+        }
+        function change() {
+            document.getElementById('headline').style.color="#ff0000"
+        }
+
+        setInterval(animate, 2);
+        setTimeout(change, 5000);
+        setTimeout(() => {
+            document.getElementById('headline').innerText = "Get a life dude! you have been watching this animation for a minute"
+        }, 60000);
+    </script>
+</body>
+
+</html>
