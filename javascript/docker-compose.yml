@@ -1,0 +1,10 @@
+version: "3.2"
+
+services: 
+  server:
+    build: .
+    ports: 
+      - 80:80
+    volumes: 
+      - ./src/:/usr/share/nginx/html
+    restart: unless-stopped

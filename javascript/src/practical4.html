@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical 4</title>
+</head>
+<body>
+    <nav class='nav justify-content-center'>
+        <h1>Practical 4</h1>
+    </nav>
+    <main style="width: 50%; margin:auto; padding:auto">
+        <form action="#" onsubmit="return false">
+            <div class='form-group'>
+                <textarea name="stack" id="stackarea" cols="40" rows="10" class='form-control'>
+
+                </textarea>
+            </div>
+            <div class='form-group'>
+                <label for="element">Element To push</label>
+                <input type="text" name='element' id='element' class='form-control'>
+            </div>
+            <div class='alert alert-success' id='success-div' hidden>
+
+            </div>
+            <div class='alert alert-danger' id='danger-div' hidden>
+
+            </div>
+            <button class='btn btn-block btn-success' name='push-button' onclick="push()">PUSH</button>
+            <button class='btn btn-block btn-success' name='pop-button' onclick="pop()">POP</button>
+        </form>
+    </main>
+    <script>
+        var stack = new Array()
+        renderStack()
+        function push() {
+            var element = document.getElementById('element')
+            if (element.value.length === 0) {
+                showError('Please enter an element to push')
+                element.focus()
+            } else {
+                stack.push(element.value)
+                renderStack()
+                showSuccess('pushed '+element.value)
+            }
+        }
+
+        function pop() {
+            if(stack.length == 0) {
+                showError('Stack is empty')
+            } else {
+                var element = stack.pop()
+                renderStack()
+                showSuccess("Popped "+element)
+            }
+        }
+
+        function showSuccess(alert) {
+            var successDiv = document.getElementById('success-div')
+            var dangerDiv = document.getElementById('danger-div')
+            successDiv.innerText = alert
+            dangerDiv.setAttribute('hidden','hidden')
+            successDiv.removeAttribute('hidden')
+        }
+
+        function showError(alert) {
+            var successDiv = document.getElementById('success-div')
+            var dangerDiv = document.getElementById('danger-div')
+            dangerDiv.innerText = alert
+            dangerDiv.removeAttribute('hidden')
+            successDiv.setAttribute('hidden','hidden')
+        }
+
+        function renderStack() {
+            stackArea = document.getElementById('stackarea')
+            stackArea.value = '### STACK ###'
+            if(stack.length === 0) {
+                stackArea.value += "\n\nEmpty"
+            } else {
+                stackArea.value += '\n\n'+stack[stack.length - 1]+'\t\t<<--TOP'
+                for(var i = stack.length-2; i>= 0; i--) {
+                    stackArea.value += '\n'+stack[i]
+                }
+            }
+        }
+    </script>
+</body>
+</html>

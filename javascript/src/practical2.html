@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical 2</title>
+</head>
+<body>
+    <nav class="nav justify-content-center">
+        <h1>Practical 2</h1>
+    </nav>
+
+    <main>
+        <div style="width: 50%; margin: auto; padding: auto;">
+            <form action="#" onsubmit="return verify()" class="justify-content-center">
+                <div class='form-group'>
+                    <label for="username">Username</label>
+                    <input type='text' name='username' id='username' class='form-control'>
+                </div>
+                <div class='form-group'>
+                        <label for="username">Password</label>
+                        <input type='password' name='password' id='password' class='form-control'>
+                </div>
+                <div class='alert alert-danger' hidden id='error-div'>
+                    Invalid Credentials
+                </div>
+                <div class='alert alert-success' hidden id='success-div'>
+                    Logged In Successfuly
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Login</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        function verify() {
+            var name = document.getElementById('username')
+            var password = document.getElementById('password')
+            if( name.value === 'admin' && password.value === 'password') {
+                document.getElementById('success-div').removeAttribute('hidden')
+                document.getElementById('error-div').setAttribute('hidden','hidden')
+                return false
+            }
+            document.getElementById('error-div').removeAttribute('hidden')
+            document.getElementById('success-div').setAttribute('hidden','hidden')
+            return false
+        }
+    </script>
+</body>
+</html>

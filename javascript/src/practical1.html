@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical1</title>
+</head>
+<body>
+    <nav class="nav justify-content-center">
+        <h1>Practical1</h1>
+    </nav>
+
+    <main>
+        <div style="width: 50%; margin: auto; padding: auto;">
+            <form action="#" onsubmit="return verify()" class="justify-content-center">
+                <div class="form-group">
+                    <label for="rollnumber">Roll Number</label>
+                    <input type="text" name="rollnumber" id="rollnumber" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="studentname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">DOB</label>
+                    <input type="date" name="date" id="date" class="form-control" required>
+                </div>
+                <div class='alert alert-danger' hidden id='error-div'>
+                    
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Register</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        function verify() {
+            const rollNumberRegex = /^[\d]{7}$/g
+            const nameRegex = /^[a-zA-Z\ ]+$/g
+
+            var rollNumber = document.getElementById('rollnumber')
+            var name = document.getElementById('studentname')
+            var errorBox = document.getElementById('error-div')
+
+            if(rollNumberRegex.test(rollNumber.value) === false) {
+                rollNumber.focus()
+                errorBox.innerText = 'Roll number is invalid'
+                errorBox.removeAttribute('hidden')
+                return false
+            }
+
+            if(nameRegex.test(name.value) === false) {
+                name.focus()
+                errorBox.innerText = 'Invalid name'
+                errorBox.removeAttribute('hidden')
+                return false
+            }
+            return true
+        }
+    </script>
+</body>
+</html>
