@@ -5,6 +5,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <h1>TODO: make a index page for all the pages i make in jsp</h1>
+        <h1> <c:out value="Hello, World!"/> </h1>
+        <p>TODO: make a index page for all the pages i make in jsp</p>
     </body>
 </html>
