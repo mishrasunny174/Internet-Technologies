@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Countdown</title>
+</head>
+
+<body>
+    <nav class='nav justify-content-center'>
+        <h1>Countdown timer</h1>
+    </nav>
+    <main style="width: 50%; padding: auto; margin: auto; margin-top: 100px;">
+        <h1 id='timer-clock' style='text-align: center;'>00:00</h1>
+        <div style='margin-top: 20px;'>
+            <form action="javascript:Void(0);">
+                <div class='form-group'>
+                    <label for="date">Count-Down to</label>
+                    <input class='form-control' type="date" id='date' name=date>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" onclick="startTimer()">Start</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        var targetTime = NaN
+        var changeTimeInterval = Nan
+        function startTimer() {
+            targetTime = new Date(document.getElementById('date').value).getTime()
+            if (isNaN(targetTime)) {
+                alert("please select a date to start countdown")
+                return
+            }
+            changeTimeInterval =  setInterval(changeTimer, 1000)
+        }
+        function changeTimer() {
+            var timer = document.getElementById('timer-clock')
+            var now = new Date().getTime()
+            var distance = targetTime - now
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            timer.innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(changeTimeInterval)
+                timer.innerHTML = "EXPIRED"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+</head>
+
+<body>
+    <nav class='nav justify-content-center'>
+        <h1>Weather</h1>
+    </nav>
+    <main style="width: 50%; padding: auto; margin: auto; margin-top: 100px;">
+        <h1 id='weather' style='text-align: center;'>0 C</h1>
+        <div style='margin-top: 20px;'>
+            <form action="javascript:Void(0);">
+                <div class='form-group'>
+                    <label for="text">PINCODE</label>
+                    <input class='form-control' type="text" id='pincode' name='pincode'>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" onclick="getWeather()">Get Weather</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        function getWeather() {
+            var pincode = document.getElementById('pincode').value
+            var weather = document.getElementById('weather')
+            var req = new XMLHttpRequest()
+            req.onreadystatechange  = function () {
+                if(this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(req.responseText)
+                    weather.innerHTML = parseFloat(data['main']['temp']) - 274.15 + ' C'
+                }
+            }
+            req.open("GET", "https://api.openweathermap.org/data/2.5/weather?zip="+pincode+",in&appid=4100cff045a110ce68e8fc8643572fbd")
+            req.send()
+        }
+    </script>
+</body>
+
+</html>
