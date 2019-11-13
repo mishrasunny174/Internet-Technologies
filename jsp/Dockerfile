@@ -2,6 +2,8 @@ FROM tomcat
 
 # deleting default files
 RUN rm -rf /usr/local/tomcat/webapps/ROOT/*
+RUN apt-get update
+RUN apt-get install libmysql-java -y
 
 # copying src files to web root
 COPY src/* /usr/local/tomcat/webapps/ROOT/

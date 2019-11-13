@@ -3,8 +3,18 @@ version: "3.0"
 services:
   tomcat:
     build: .
+    depends_on:
+      - database
     ports:
       - 8080:8080
     restart: unless-stopped
     volumes:
       - ./src:/usr/local/tomcat/webapps/ROOT
+  database:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jsp
+    volumes:
+      - ./sqldump:/docker-entrypoint-initdb.d
+
