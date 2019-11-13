@@ -19,8 +19,9 @@
     </nav>
     <main style="width: 50%; margin: auto; padding: auto;">
         <form action="form.jsp" method="POST" style="margin-top: 10px;">
-            <div class="form-group">
-                <textarea name="result" id="result" cols="50" rows="10" class="form-control" readonly>
+            <c:if test="${param.submit.equals('submit')}">
+                <div class="form-group">
+                    <textarea name="result" id="result" cols="50" rows="10" class="form-control" readonly>
                 <c:out value="### You Entered ###" />
                 <c:out value="Username: ${param['username']}" />
                 <c:out value="Email: ${param['email']}" />
@@ -29,7 +30,8 @@
                 <c:out value="Favorite food: " />
                 <c:forEach items="${paramValues.food}" var="current"><c:out value="${current}" /> </c:forEach>
                 </textarea>
-            </div>
+                </div>
+            </c:if>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" class="form-control" name="username" required>
@@ -63,7 +65,7 @@
                     <label><input type="checkbox" name="food" id="food" value='chinese'> Chinese</label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">
+            <button type="submit" class="btn btn-primary btn-block" name='submit' value="submit">
                 Submit
             </button>
         </form>
