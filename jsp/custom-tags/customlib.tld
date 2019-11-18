@@ -22,4 +22,18 @@
                 <name>texture</name>
             </attribute>
         </tag>
+        <tag>
+            <name>substring</name>
+            <body-content>empty</body-content>
+            <tag-class>cf.mishrasunny174.substring.SubStringTag</tag-class>
+            <attribute>
+                <name>input</name>
+            </attribute>
+            <attribute>
+                <name>start</name>
+            </attribute>
+            <attribute>
+                <name>end</name>
+            </attribute>
+        </tag>
     </taglib>
