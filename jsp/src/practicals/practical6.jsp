@@ -1,6 +1,6 @@
 <%@ page contentType="text/html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="test" uri="cf.mishrasunny174.hellotag"%>
+<%@ taglib prefix="custom" uri="https://mishrasunny174.cf/jsp/cutomtaglib"%>
 <c:set var="sessionCounter" scope="application" value="${sessionCounter+1}"/>
 
 <!DOCTYPE html>
@@ -12,6 +12,7 @@
     <title>Practical 6</title>
 </head>
 <body>
-    <h1><test:hello name="Sunny"/></h1>
+    <h1><custom:hello name="Sunny"/></h1>
+    <h1><custom:choco texture="chewy"/></h1>
 </body>
 </html>
