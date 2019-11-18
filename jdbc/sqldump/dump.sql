@@ -61,8 +61,8 @@ INSERT INTO results(rollnumber, maths, science, english) VALUES
 
 create function num_of_rows()
 begin
-  select count(*) from students
-end
+  return (select count(*) from students)
+end;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
