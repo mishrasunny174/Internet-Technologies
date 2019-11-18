@@ -1,7 +1,6 @@
 <%@ page contentType="text/html" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="custom" uri="https://mishrasunny174.cf/jsp/cutomtaglib"%>
-<c:set var="sessionCounter" scope="application" value="${sessionCounter+1}"/>
 
 <!DOCTYPE html>
 <html lang="en">

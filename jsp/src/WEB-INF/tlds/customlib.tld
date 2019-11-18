@@ -44,4 +44,9 @@
                 <name>input</name>
             </attribute>
         </tag>
+        <tag>
+            <name>today</name>
+            <body-content>empty</body-content>
+            <tag-class>cf.mishrasunny174.today.TodayTag</tag-class>
+        </tag>
     </taglib>
