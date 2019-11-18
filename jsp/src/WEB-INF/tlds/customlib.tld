@@ -36,4 +36,12 @@
                 <name>end</name>
             </attribute>
         </tag>
+        <tag>
+            <name>reverse</name>
+            <body-content>empty</body-content>
+            <tag-class>cf.mishrasunny174.reverse.ReverseTag</tag-class>
+            <attribute>
+                <name>input</name>
+            </attribute>
+        </tag>
     </taglib>
