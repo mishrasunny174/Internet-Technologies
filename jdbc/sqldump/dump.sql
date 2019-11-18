@@ -60,9 +60,8 @@ INSERT INTO results(rollnumber, maths, science, english) VALUES
 (5, 73, 56, 65);
 
 create function num_of_rows()
-begin
-  return (select count(*) from students)
-end;
+returns int 
+return (select count(*) from students);
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
