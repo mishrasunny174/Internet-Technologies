@@ -26,8 +26,10 @@ DROP TABLE IF EXISTS `results`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `results` (
   `rollnumber` int(11) NOT NULL,
-  `marks` int(11) DEFAULT NULL,
-  PRIMARY KEY (`rollnumber`)
+  `maths` int(11) DEFAULT 0,
+  `science`int(11) DEFAULT 0,
+  `english` int(11) DEFAULT 0,
+  PRIMARY KEY(rollnumber)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,10 +44,25 @@ CREATE TABLE `students` (
   `name` varchar(64) DEFAULT NULL,
   `rollnumber` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`rollnumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-INSERT INTO students(name) VALUES ('a'),('b'),('c'),('d'),('e');
-INSERT INTO results(rollnumber, marks) VALUES (1, 100),(2,200),(3,500),(4,50),(5,0);
+INSERT INTO students(name) VALUES ('student a')
+,('student b')
+,('student c')
+,('student d')
+,('student e');
+
+INSERT INTO results(rollnumber, maths, science, english) VALUES 
+(1, 95, 77, 99),
+(2, 20, 30, 50),
+(3, 99, 99, 99),
+(4, 100, 0, 0),
+(5, 73, 56, 65);
+
+create function num_of_rows()
+begin
+  select count(*) from students
+end
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
