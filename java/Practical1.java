@@ -60,7 +60,7 @@ class Bank {
     }
 
     public String getAccountWithMaximumBalance() {
-        double max = 0;
+        double max = Double.MIN_VALUE;
         String maxAccountNumber = "";
         for (Account acc : this.accounts) {
             if (acc.getBalance() > max) {
@@ -72,7 +72,7 @@ class Bank {
     }
 
     public String getAccountWithMinimumBalance() {
-        double min = Integer.MAX_VALUE;
+        double min = Double.MAX_VALUE;
         String minAccountNumber = "";
         for (Account acc : this.accounts) {
             if (acc.getBalance() < min) {
