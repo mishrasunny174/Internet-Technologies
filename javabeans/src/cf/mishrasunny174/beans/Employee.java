@@ -1,3 +1,5 @@
+package cf.mishrasunny174.beans;
+
 import java.io.Serializable;
 import java.util.Date;
 
