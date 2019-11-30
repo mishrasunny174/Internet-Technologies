@@ -62,6 +62,8 @@ INSERT INTO results(rollnumber, maths, science, english) VALUES
 create function num_of_rows()
 returns int 
 return (select count(*) from students);
+
+create procedure proc1(out num INTEGER) SELECT count(*) into num from students;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
