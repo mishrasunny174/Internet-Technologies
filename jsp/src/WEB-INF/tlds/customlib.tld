@@ -49,4 +49,15 @@
             <body-content>empty</body-content>
             <tag-class>cf.mishrasunny174.today.TodayTag</tag-class>
         </tag>
+        <tag>
+            <name>findSubString</name>
+            <body-content>empty</body-content>
+            <tag-class>cf.mishrasunny174.findsubstring.FindSubStringTag</tag-class>
+            <attribute>
+                <name>targetString</name>
+            </attribute>
+            <attribute>
+                <name>searchString</name>
+            </attribute>
+        </tag>
     </taglib>
