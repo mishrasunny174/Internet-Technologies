@@ -22,6 +22,10 @@ public class SqlFunctions {
             cStatement2.registerOutParameter(1, java.sql.Types.INTEGER);
             cStatement2.execute();
             System.out.println("Num of rows using out parameter: " + cStatement2.getInt(1));
+            Statement st = conn.createStatement();
+            if(st.executeUpdate("update students set name='sunny' where rollnumber = 1")==1) {
+                System.out.println("Updated students name");
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }
