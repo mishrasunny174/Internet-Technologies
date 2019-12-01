@@ -20,7 +20,7 @@ public class SqlFunctions {
             }
             CallableStatement cStatement2 = conn.prepareCall("{ call proc1(?) }");
             cStatement2.registerOutParameter(1, java.sql.Types.INTEGER);
-            cStatement2.executeUpdate();
+            cStatement2.execute();
             System.out.println("Num of rows using out parameter: " + cStatement2.getInt(1));
         } catch (SQLException sqle) {
             sqle.printStackTrace();
